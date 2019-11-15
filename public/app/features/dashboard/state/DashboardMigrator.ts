@@ -316,7 +316,6 @@ export class DashboardMigrator {
           return;
         }
 
-        panel.thresholds = [];
         const t1: any = {},
           t2: any = {};
 
@@ -347,6 +346,7 @@ export class DashboardMigrator {
         }
 
         if (_.isNumber(t1.value)) {
+          panel.thresholds = [];
           if (_.isNumber(t2.value)) {
             if (t1.value > t2.value) {
               t1.op = t2.op = 'lt';
